@@ -1,0 +1,36 @@
+<div>
+    value
+    {{miForm.value |json}}
+</div>
+
+<form [formGroup]="miForm" >
+    <div class="mb-3">
+      <label for="email" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="email" formControlName="email">
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" class="form-control" id="password" formControlName="password">
+    </div>
+
+    <button type="submit" class="btn btn-primary" (click)="login()" >LogIn</button>
+</form>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop"  [ngClass]="{'show':modal}" [style.display]="modal ? 'block' : 'none'" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Error</h1>
+          <button type="button" class="btn-close" (click)="mostrarOcularModal()"  aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          usuario o clave icno
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="mostrarOcularModal()" >Close</button>
+        </div>
+      </div>
+    </div>
+  </div>

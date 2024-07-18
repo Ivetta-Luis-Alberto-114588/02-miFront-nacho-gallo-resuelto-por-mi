@@ -1,0 +1,129 @@
+<div>
+    <div class="row">
+
+        <div class="col-xs-12 col-md-6">
+            <div class="img">
+                imagen
+            </div>
+        </div>
+            
+        <div class="col-xs-12 col-md-6">          
+            <div class="card">
+                <div class="card-header">
+                  Formulario
+                </div>
+           
+                <div class="card-body">
+
+                    <div>
+                        valores
+                        {{miForm.value  | json}}
+                    </div>
+
+                    <form [formGroup]="miForm" >
+
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="mb-3">
+                                    <label for="userName" class="form-label">userName</label>
+                                    <input type="text" class="form-control" id="userName" formControlName="userName">
+                                </div>
+                            </div>
+                        </div>
+    
+    
+                        <div class="row">
+    
+                            <div class="col-xs-12 col-md-6">
+                                <div class="mb-3">
+                                    <label for="firstName" class="form-label">firstName</label>
+                                    <input type="text" class="form-control" id="firstName" formControlName="firstName">
+                                </div>       
+                            </div>
+    
+                           <div class="col-xs-12 col-md-6">
+                                <div class="mb-3">
+                                    <label for="lastName" class="form-label">lastName</label>
+                                    <input type="text" class="form-control" id="lastName" formControlName="lastName">
+                                </div>       
+                            </div>
+                     
+                        </div>
+    
+    
+                        <div class="row">
+    
+                            <div class="col-xs-12 col-md-6">
+                                <div class="mb-3">
+                                    <label for="country" class="form-label">country</label>
+                                    
+                                    <select id="pais" class="form-control" formControlName="country">
+                                        <option value="" >seleccione country</option>
+                                        <option  *ngFor="let item of listadoPaises" [value]="item.pais"> {{item.pais}} </option>
+                                        
+                                    </select>
+                                    
+                                </div>       
+                            </div>
+    
+                            <div class="col-xs-12 col-md-6">
+                                <div class="mb-3">
+                                    <label for="state" class="form-label">state</label>
+                                    
+                                    <select id="state" class="form-control" formControlName="state">
+                                        <option value="">seleccione state</option>
+                                        <option *ngFor="let item of listadoProvincias" [value]="item" > {{item}} </option>
+                                    </select>
+                                    
+                                </div>       
+                            </div>
+                        </div>
+    
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="col-12">
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label">email</label>
+                                        <input type="text" class="form-control" id="email" formControlName="email">
+                                    </div>       
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="row">
+                            <div class="col-xs-12 col-md-6">
+                                <div class="mb-3">
+                                    <label for="phoneNumber" class="form-label">phoneNumber</label>
+                                    <input type="text" class="form-control" id="phoneNumber" formControlName="phoneNumber">
+                                    <small>{{phoneNumber?.errors | json}}</small>
+                                </div>
+                            </div>
+    
+                            <div class="col-xs-12 col-md-6">
+                                <div class="mb-3">
+                                    <label for="birthDate" class="form-label">birthDate</label>
+                                    <input type="date" class="form-control" id="birthDate" formControlName="birthDate">
+                                    <small>{{birthDate?.errors | json}}</small>
+                                </div>
+                            </div>
+    
+                        </div>
+       
+                        <button type="submit" class="btn btn-primary" (click)="guardar()" >Guardar</button>
+                       
+                    
+                      </form>
+
+                      <div>
+                        validar iguales
+                        {{miForm.errors?.['iguales'] |json }}
+                      </div>
+                </div>
+                
+          
+            </div>
+           
+        </div>
+    </div>
+
+</div>
